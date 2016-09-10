@@ -3,6 +3,13 @@
 
 feeling.factory('Feeling', function($http) {
 	let FactoryObj = {}
+
+	FactoryObj.originalInput = null;
+	FactoryObj.originalEmotions = null;
+	FactoryObj.responseInput = null;
+	FactoryObj.responseEmotions = null;
+	FactoryObj.emotionVariance = null;
+
 	FactoryObj.alchemyCall = function(method, text) {
 		let parameters = {
 			text: text

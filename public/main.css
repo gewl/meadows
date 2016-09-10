@@ -1,9 +1,29 @@
+@font-face {
+	font-family: HelveticaNeueBold;
+	src: local("Helvetica Neue Bold"),
+		local("HelveticaNeue-Bold"),
+		url(/fonts/HelveticaNeue-Bold.otf);
+}
+
+@font-face {
+	font-family: HelveticaNeue;
+	src: local("Helvetica Neue"),
+		local("HelveticaNeue"),
+		url(/fonts/HelveticaNeue.otf);
+		font-weight: normal;
+}
+
 html body {
 	background-color: mistyrose;
+	font-family: 'HelveticaNeue', Arial;
 }
 
 .form-group p {
 	font-style: italic;
+}
+
+ul {
+	font-family: 'HelveticaNeueBold';
 }
 
 .printout {
