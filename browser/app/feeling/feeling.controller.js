@@ -16,17 +16,11 @@ feeling.controller('FeelingCtrl', function($scope, Feeling) {
 			Feeling.set("responseInput", $scope.input.response)
 			Feeling.alchemyCall('emotion', $scope.input.original)
 			.then(function(emotionJson) {
-				// $scope.originalEmotions = emotionJson.docEmotions
-				return Feeling.set("originalEmotions", emotionJson.docEmotions)
-			})
-			.then(function(res) {
+				Feeling.set("originalEmotions", emotionJson.docEmotions)
 				return Feeling.alchemyCall('emotion', $scope.input.response)
 			})
 			.then(function(emotionJson){
-				// $scope.responseEmotions = emotionJson.docEmotions
-				return Feeling.set("responseEmotions", emotionJson.docEmotions)
-			})
-			.then(function(res) {
+				Feeling.set("responseEmotions", emotionJson.docEmotions)
 				$scope.emotionReadout = Feeling.printEmotions()
 				$scope.hasRun = true;			
 				$scope.input.original = ""	
