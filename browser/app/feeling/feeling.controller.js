@@ -32,7 +32,8 @@ feeling.controller('FeelingCtrl', function($scope, Feeling) {
 			})
 		}
 	}
-	
+
+	//move this function to the factory now that you're moving the text onto factory variables	
 	$scope.printEmotions = function() {
 		for (var prop in $scope.emotionVariance) {
 				let feelingAmount = $scope.emotionVariance[prop]
@@ -43,9 +44,13 @@ feeling.controller('FeelingCtrl', function($scope, Feeling) {
 				} else if (feelingAmount > -0.9 && feelingAmount <= -0.6) {
 					resString += "more " + prop + " than"
 				} else if (feelingAmount > -0.6 && feelingAmount <= -0.3) {
+					resString += "somewhat more " + prop + " than"
+				} else if (feelingAmount > -0.3 && feelingAmount <= -0.1) {
 					resString += "slightly more " + prop + " than"
-				} else if (feelingAmount > 0.3 && feelingAmount <= 0.6) {
+				} else if (feelingAmount > 0.1 && feelingAmount <= 0.3) {
 					resString += "slightly less " + prop + " than"
+				} else if (feelingAmount > 0.3 && feelingAmount <= 0.6) {
+					resString += "somewhat less " + prop + " than"
 				} else if (feelingAmount > 0.6 && feelingAmount < 0.9) {
 					resString += "more" + prop + " than"
 				} else if (feelingAmount >= 0.9 && feelingAmount <= 0.1) {

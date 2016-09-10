@@ -13,7 +13,7 @@ var alchemyLanguage = new watson.AlchemyLanguageV1({
 	api_key: process.env.ALCHEMY_LANGUAGE_API_KEY	
 })
 
-app.get('/', function(req, res) {
+app.get('/*', function(req, res) {
 	res.sendFile('/')
 })
 
