@@ -28,8 +28,4 @@ feeling.controller('FeelingCtrl', function($scope, Feeling) {
 			})
 		}
 	}
-
-	//move this function to the factory now that you're moving the text onto factory variables	
-	
-
 })

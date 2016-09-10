@@ -26,21 +26,22 @@
 			</div>
 			<div class="form-group">
 				<div class="col-xs-10">
-					<button type="submit" class="btn btn-success" ng-click="getEmotions()">Get the feelings</button>
+					<button type="submit" class="btn btn-success noSelect" ng-click="getEmotions()">Get the feelings</button>
 				</div>
 			</div>
 		</form>
 	</div>
 	<div class="col-md-12 printout" ng-show="hasRun">
 		<h3 class="page-header">Your results:</h3>
-		<br />
-		<div class="clearfix">
-			<div class="col-lg-2 col-md-4 col-sm-4 col-xs-6" ng-repeat="emotion in emotionReadout">
-				<div class="col-md-12 emotionOutput" id="{{emotion.feeling}}">
-					<p>{{ emotion.printout }}</p>
-				</div>
+		<div class="col-lg-2 col-md-4 col-sm-4 col-xs-6" ng-repeat="emotion in emotionReadout">
+			<div class="col-md-12 emotionOutput" id="{{emotion.feeling}}">
+				<p>{{ emotion.printout }}</p>
 			</div>
 		</div>
+		<div class="col-xs-12">
+			<a ui-sref="detailedReport"><button class="btn-block btn-warning" id="detailed-button">Click here for detailed report.</button></a>
+		</div>
+		<br />
 	</div>
 </div>
 

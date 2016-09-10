@@ -18,12 +18,28 @@ html body {
 	font-family: 'HelveticaNeue', Arial;
 }
 
-.form-group p {
-	font-style: italic;
-}
-
 ul {
 	font-family: 'HelveticaNeueBold';
+}
+
+button {
+	color: black !important;
+	font-family: 'HelveticaNeueBold';
+	text-transform: uppercase;
+	box-shadow: 2px 2px 0 0 #000000;
+	outline: none !important;
+}
+
+footer {
+	height: 80px;
+}
+
+#detailed-button {
+	margin-bottom: 40px;
+}
+
+.form-group p {
+	font-style: italic;
 }
 
 .printout {
@@ -94,4 +110,21 @@ ul {
 
 #sadness {
 	background-color: lightblue;
+}
+
+#input-table {
+	background-color: white;
+}
+
+.table {
+	box-shadow: 2px 2px 0 0 #000000;
+}
+
+#input-table td {
+	border: 1px solid black;
+}
+
+.column-header {
+	font-family: "HelveticaNeueBold";
+	background-color: lavender;
 }

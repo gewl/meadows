@@ -1,0 +1,35 @@
+<div id="main" class="container">
+	<h2 class="page-header">Detailed report.</h2>
+
+	<h3>Input.</h3>
+	<div class="col-md-10 col-sm-12">
+		<table class="table table-bordered table-responsive" id="input-table">
+			<tr>
+				<td class="column-header">Original message.</td>
+				<td class="column-header">Your response.</td>
+			</tr>
+			<tr>
+				<td>{{ originalInput }}</td>
+				<td>{{ responseInput }}</td>
+			</tr>
+		</table>
+	</div>
+
+	<h3>Emotional indices.</h3>
+	<div class="col-md-10 col-sm-12">
+		<table class="table table-bordered table-responsive" id="input-table">
+			<tr>
+				<td class="column-header">Emotion</td>
+				<td class="column-header">Index in original.</td>
+				<td class="column-header">Index in response.</td>
+				<td class="column-header">Differential.</td>
+			</tr>
+			<tr ng-repeat="(emotion, feelingIndex) in emotionVariance">
+				<td id="{{ emotion }}">{{ emotion }}</td>
+				<td>{{ originalEmotions[emotion] }}</td>
+				<td>{{ responseEmotions[emotion] }}</td>
+				<td>{{ feelingIndex }}</td>
+			</tr>
+		</table>
+	</div>
+</div>
