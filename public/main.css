@@ -38,6 +38,14 @@ td {
 	background-color: white;
 }
 
+h4 {
+	font-family: "HelveticaNeueBold";
+}
+
+.about-text p {
+	font-style: italic;
+}
+
 #detailed-button {
 	margin-bottom: 40px;
 }

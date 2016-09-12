@@ -24,7 +24,7 @@ feeling.factory('Feeling', function($http) {
 		let parameters = {
 			text: text
 		}
-		if (method === "entities") {
+		if (method === "entities" || method === "keywords") {
 			parameters.sentiment = 1
 			parameters.max_items = 10
 		}

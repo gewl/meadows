@@ -4,16 +4,16 @@ feeling.config(function ($stateProvider) {
 		templateUrl: 'browser/app/detailed/templates/detailed.html',
 		controller: 'DetailedCtrl',
 		resolve: {
-			originalConcepts: function(Feeling) {
-				return Feeling.alchemyCall("concepts", Feeling.originalInput)
+			originalKeywords: function(Feeling) {
+				return Feeling.alchemyCall("keywords", Feeling.originalInput)
 				.then(function(result) {
-					return result.concepts
+					return result.keywords
 				})
 			}, 
-			responseConcepts: function(Feeling) {
-				return Feeling.alchemyCall("concepts", Feeling.responseInput)
+			responseKeywords: function(Feeling) {
+				return Feeling.alchemyCall("keywords", Feeling.responseInput)
 				.then(function(result) {
-					return result.concepts
+					return result.keywords
 				})
 			},
 			originalEntities: function(Feeling) {

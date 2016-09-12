@@ -1,8 +1,8 @@
 <div id="main" class="container">
 	<h2 class="page-header">Detailed report.</h2>
 	<div class="row">
-		<h3>Input.</h3>
-		<div class="col-md-10 col-sm-12">
+		<h3>Input. <a href="#input" class="btn btn-default" data-toggle="collapse">Show/Hide</a></h3>
+		<div class="col-md-10 col-sm-12 collapse" id="input">
 			<table class="table table-bordered table-responsive" id="input-table">
 				<tr>
 					<td class="column-header">Original message.</td>
@@ -16,8 +16,8 @@
 		</div>
 	</div>
 	<div class="row">
-		<h3>Emotional indices.</h3>
-		<div class="col-md-10 col-sm-12">
+		<h3>Emotional indices. <a href="#indices" class="btn btn-default" data-toggle="collapse">Show/Hide</a></h3>
+		<div class="col-md-10 col-sm-12 collapse" id="indices">
 			<table class="table table-bordered table-responsive" id="input-table">
 				<tr>
 					<td class="column-header">Emotion</td>
@@ -35,42 +35,46 @@
 		</div>
 	</div>
 	<div class="row">
-		<h3>Concepts in their message.</h3>
-		<div class="col-md-10 col-sm-12">
+		<h3>Keywords in their message. <a href="#originalKeywords" class="btn btn-default" data-toggle="collapse">Show/Hide</a></h3>
+		<div class="col-md-10 col-sm-12 collapse" id="originalKeywords">
 			<table class="table table-bordered table-responsive" class="input-table">
 				<tr>
-					<td class="column-header">Concept.</td>
-					<td class="column-header">Discussed by you.</td>
+					<td class="column-header">Keyword.</td>
+					<td class="column-header">Attitude toward keyword.</td>
+					<td class="column-header">Your attitude toward keyword.</td>
 					<td class="column-header">Relevance.</td>
 				</tr>
-				<tr ng-repeat="concept in originalConcepts">
-					<td>{{ concept.text }}</td>
-					<td>{{ responseConceptsCheck(concept.text) }}</td>
-					<td>{{ concept.relevance }}</td>
+				<tr ng-repeat="keyword in originalKeywords">
+					<td>{{ keyword.text }}</td>
+					<td>{{ keyword.sentiment.type }}</td>
+					<td>{{ responseKeywordsLookup(keyword.text) }}</td>
+					<td>{{ keyword.relevance }}</td>
 				</tr>
 			</table>
 		</div>
 	</div>
 	<div class="row">
-		<h3>Concepts in your response.</h3>
-		<div class="col-md-10 col-sm-12">
+		<h3>Keywords in your response. <a href="#responseKeywords" class="btn btn-default" data-toggle="collapse">Show/Hide</a></h3>
+		<div class="col-md-10 col-sm-12 collapse" id="responseKeywords">
 			<table class="table table-bordered table-responsive" class="input-table">
 				<tr>
-					<td class="column-header">Concept.</td>
-					<td class="column-header">Discussed by them.</td>
+					<td class="column-header">Keyword.</td>
+					<td class="column-header">Attitude toward keyword.</td>
+					<td class="column-header">Their attitude toward keyword.</td>
 					<td class="column-header">Relevance.</td>
 				</tr>
-				<tr ng-repeat="concept in responseConcepts">
-					<td>{{ concept.text }}</td>
-					<td>{{ originalConceptsCheck(concept.text) }}</td>
-					<td>{{ concept.relevance }}</td>
+				<tr ng-repeat="keyword in responseKeywords">
+					<td>{{ keyword.text }}</td>
+					<td>{{ keyword.sentiment.type }}</td>
+					<td>{{ originalKeywordsLookup(keyword.text) }}</td>
+					<td>{{ keyword.relevance }}</td>
 				</tr>
 			</table>
 		</div>
 	</div>
 	<div class="row">
-		<h3>Entities in their message.</h3>
-		<div class="col-md-10 col-sm-12">
+		<h3>Entities in their message. <a href="#originalEntities" class="btn btn-default" data-toggle="collapse">Show/Hide</a></h3>
+		<div class="col-md-10 col-sm-12 collapse" id="originalEntities">
 			<table class="table table-bordered table-responsive" class="input-table">
 				<tr>
 					<td class="column-header">Entity.</td>
@@ -88,8 +92,8 @@
 		</div>
 	</div>
 	<div class="row">
-		<h3>Entities in your response.</h3>
-		<div class="col-md-10 col-sm-12">
+		<h3>Entities in your response. <a href="#responseEntities" class="btn btn-default" data-toggle="collapse">Show/Hide</a></h3>
+		<div class="col-md-10 col-sm-12 collapse" id="responseEntities">
 			<table class="table table-bordered table-responsive" class="input-table">
 				<tr>
 					<td class="column-header">Entity.</td>
