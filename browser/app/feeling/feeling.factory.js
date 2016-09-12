@@ -25,7 +25,8 @@ feeling.factory('Feeling', function($http) {
 			text: text
 		}
 		if (method === "entities") {
-			paramters.syntax = 1
+			parameters.sentiment = 1
+			parameters.max_items = 10
 		}
 		return $http.post('/api/' + method, parameters)
 		.then(function(result) {

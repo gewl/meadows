@@ -16,7 +16,19 @@ feeling.config(function ($stateProvider) {
 					return result.concepts
 				})
 			},
-			
+			originalEntities: function(Feeling) {
+				return Feeling.alchemyCall("entities", Feeling.originalInput)
+				.then(function(result) {
+					return result.entities
+				})
+			},
+			responseEntities: function(Feeling) {
+				return Feeling.alchemyCall("entities", Feeling.responseInput)
+					.then(function(result) {
+						return result.entities
+					})
+			}
+
 		}
 	})
 })

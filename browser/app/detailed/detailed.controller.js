@@ -1,7 +1,7 @@
 /* global feeling */
 'use strict'
 
-feeling.controller('DetailedCtrl', function($scope, Feeling, originalConcepts, responseConcepts) {
+feeling.controller('DetailedCtrl', function($scope, Feeling, originalConcepts, responseConcepts, originalEntities, responseEntities) {
 	$scope.originalInput = Feeling.originalInput || "Original message not found."	
 	$scope.responseInput = Feeling.responseInput || "Response draft not found."
 	$scope.emotionVariance = Feeling.emotionVariance
@@ -9,10 +9,12 @@ feeling.controller('DetailedCtrl', function($scope, Feeling, originalConcepts, r
 	$scope.originalEmotions = Feeling.originalEmotions
 	$scope.originalConcepts = originalConcepts
 	$scope.responseConcepts = responseConcepts
-
+	$scope.originalEntities = originalEntities
+	$scope.responseEntities = responseEntities
 	$scope.originalConceptsList = null
 	$scope.responseConceptsList = null
 		
+
 	$scope.originalConceptsCheck = function(string) {
 		if (!$scope.originalConceptsList) {
 			$scope.originalConceptsList = []
@@ -41,8 +43,22 @@ feeling.controller('DetailedCtrl', function($scope, Feeling, originalConcepts, r
 		}
 	}
 
-	$scope.listOriginalConcepts = function() {
-		console.log($scope.originalConcepts)
+	$scope.originalEntityLookup = function(entityName) {
+		let originalEntity = $scope.originalEntities.filter(entity => entity.text.toLowerCase() === entityName.toLowerCase())
+		if (originalEntity.length === 0) {
+			return "N/A"
+		} else {
+			return originalEntity[0].sentiment.type
+		}
+	}
+
+	$scope.responseEntityLookup = function(entityName) {
+		let responseEntity = $scope.responseEntities.filter(entity => entity.text.toLowerCase() === entityName.toLowerCase())
+		if (responseEntity.length === 0) {
+			return "N/A"
+		} else {
+			return responseEntity[0].sentiment.type
+		}
 	}
 })
 

@@ -68,5 +68,43 @@
 			</table>
 		</div>
 	</div>
-	<button ng-click="logEntities">log entities</button>
+	<div class="row">
+		<h3>Entities in their message.</h3>
+		<div class="col-md-10 col-sm-12">
+			<table class="table table-bordered table-responsive" class="input-table">
+				<tr>
+					<td class="column-header">Entity.</td>
+					<td class="column-header">Attitude toward entity.</td>
+					<td class="column-header">Your attitude toward entity.</td>
+					<td class="column-header">Relevance.</td>
+				</tr>
+				<tr ng-repeat="entity in originalEntities">
+					<td>{{ entity.text }}</td>
+					<td>{{ entity.sentiment.type }}</td>
+					<td>{{ responseEntityLookup(entity.text) }}</td>
+					<td>{{ entity.relevance }}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<h3>Entities in your response.</h3>
+		<div class="col-md-10 col-sm-12">
+			<table class="table table-bordered table-responsive" class="input-table">
+				<tr>
+					<td class="column-header">Entity.</td>
+					<td class="column-header">Attitude toward entity.</td>
+					<td class="column-header">Original's attitude toward entity.</td>
+					<td class="column-header">Relevance.</td>
+				</tr>
+				<tr ng-repeat="entity in responseEntities">
+					<td>{{ entity.text }}</td>
+					<td>{{ entity.sentiment.type }}</td>
+					<td>{{ originalEntityLookup(entity.text) }}</td>
+					<td>{{ entity.relevance }}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
 </div>
