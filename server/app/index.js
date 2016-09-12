@@ -22,6 +22,7 @@ app.post('/api/:method', function(req, res, next) {
 	if (typeof alchemyLanguage[method] === 'function') {
 		alchemyLanguage[method](req.body, function(err, response) {
 			if (err) {
+				console.log(err)
 				return next(err)
 			}
 			return res.json(response)

@@ -24,6 +24,9 @@ feeling.factory('Feeling', function($http) {
 		let parameters = {
 			text: text
 		}
+		if (method === "entities") {
+			paramters.syntax = 1
+		}
 		return $http.post('/api/' + method, parameters)
 		.then(function(result) {
 			return result.data

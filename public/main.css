@@ -34,6 +34,10 @@ footer {
 	height: 80px;
 }
 
+td {
+	background-color: white;
+}
+
 #detailed-button {
 	margin-bottom: 40px;
 }
@@ -112,7 +116,7 @@ footer {
 	background-color: lightblue;
 }
 
-#input-table {
+.input-table {
 	background-color: white;
 }
 
@@ -120,7 +124,7 @@ footer {
 	box-shadow: 2px 2px 0 0 #000000;
 }
 
-#input-table td {
+.input-table td {
 	border: 1px solid black;
 }
 
