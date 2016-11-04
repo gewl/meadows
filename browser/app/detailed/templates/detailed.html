@@ -1,0 +1,114 @@
+<div id="main" class="container">
+	<h2 class="page-header">Detailed report.</h2>
+	<div class="row">
+		<h3>Input. <a href="#input" class="btn btn-default" data-toggle="collapse">Show/Hide</a></h3>
+		<div class="col-md-10 col-sm-12 collapse" id="input">
+			<table class="table table-bordered table-responsive" id="input-table">
+				<tr>
+					<td class="column-header">Original message.</td>
+					<td class="column-header">Your response.</td>
+				</tr>
+				<tr>
+					<td>{{ originalInput }}</td>
+					<td>{{ responseInput }}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<h3>Emotional indices. <a href="#indices" class="btn btn-default" data-toggle="collapse">Show/Hide</a></h3>
+		<div class="col-md-10 col-sm-12 collapse" id="indices">
+			<table class="table table-bordered table-responsive" id="input-table">
+				<tr>
+					<td class="column-header">Emotion</td>
+					<td class="column-header">Index in original.</td>
+					<td class="column-header">Index in response.</td>
+					<td class="column-header">Difference from original.</td>
+				</tr>
+				<tr ng-repeat="(emotion, feelingIndex) in emotionVariance">
+					<td id="{{ emotion }}">{{ emotion }}</td>
+					<td>{{ originalEmotions[emotion] }}</td>
+					<td>{{ responseEmotions[emotion] }}</td>
+					<td>{{ feelingIndex }}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<h3>Keywords in their message. <a href="#originalKeywords" class="btn btn-default" data-toggle="collapse">Show/Hide</a></h3>
+		<div class="col-md-10 col-sm-12 collapse" id="originalKeywords">
+			<table class="table table-bordered table-responsive" class="input-table">
+				<tr>
+					<td class="column-header">Keyword.</td>
+					<td class="column-header">Attitude toward keyword.</td>
+					<td class="column-header">Your attitude toward keyword.</td>
+					<td class="column-header">Relevance.</td>
+				</tr>
+				<tr ng-repeat="keyword in originalKeywords">
+					<td>{{ keyword.text }}</td>
+					<td>{{ keyword.sentiment.type }}</td>
+					<td>{{ responseKeywordsLookup(keyword.text) }}</td>
+					<td>{{ keyword.relevance }}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<h3>Keywords in your response. <a href="#responseKeywords" class="btn btn-default" data-toggle="collapse">Show/Hide</a></h3>
+		<div class="col-md-10 col-sm-12 collapse" id="responseKeywords">
+			<table class="table table-bordered table-responsive" class="input-table">
+				<tr>
+					<td class="column-header">Keyword.</td>
+					<td class="column-header">Attitude toward keyword.</td>
+					<td class="column-header">Their attitude toward keyword.</td>
+					<td class="column-header">Relevance.</td>
+				</tr>
+				<tr ng-repeat="keyword in responseKeywords">
+					<td>{{ keyword.text }}</td>
+					<td>{{ keyword.sentiment.type }}</td>
+					<td>{{ originalKeywordsLookup(keyword.text) }}</td>
+					<td>{{ keyword.relevance }}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<h3>Entities in their message. <a href="#originalEntities" class="btn btn-default" data-toggle="collapse">Show/Hide</a></h3>
+		<div class="col-md-10 col-sm-12 collapse" id="originalEntities">
+			<table class="table table-bordered table-responsive" class="input-table">
+				<tr>
+					<td class="column-header">Entity.</td>
+					<td class="column-header">Attitude toward entity.</td>
+					<td class="column-header">Your attitude toward entity.</td>
+					<td class="column-header">Relevance.</td>
+				</tr>
+				<tr ng-repeat="entity in originalEntities">
+					<td>{{ entity.text }}</td>
+					<td>{{ entity.sentiment.type }}</td>
+					<td>{{ responseEntityLookup(entity.text) }}</td>
+					<td>{{ entity.relevance }}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<h3>Entities in your response. <a href="#responseEntities" class="btn btn-default" data-toggle="collapse">Show/Hide</a></h3>
+		<div class="col-md-10 col-sm-12 collapse" id="responseEntities">
+			<table class="table table-bordered table-responsive" class="input-table">
+				<tr>
+					<td class="column-header">Entity.</td>
+					<td class="column-header">Attitude toward entity.</td>
+					<td class="column-header">Original's attitude toward entity.</td>
+					<td class="column-header">Relevance.</td>
+				</tr>
+				<tr ng-repeat="entity in responseEntities">
+					<td>{{ entity.text }}</td>
+					<td>{{ entity.sentiment.type }}</td>
+					<td>{{ originalEntityLookup(entity.text) }}</td>
+					<td>{{ entity.relevance }}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</div>

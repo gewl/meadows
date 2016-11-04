@@ -3,12 +3,6 @@
 		<h2 class="page-header">What's the feeling?</h2>
 		<form class="form-horizontal" name="feelingForm" novalidate>
 			<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 form-group">
-				<p>This page is intended to help your normalize and manage your emotional responses. Through the use of IBM's "Watson", a "cognitive system" that "learns at scale", it is now possible to quickly and reliably draw up a series of indices corresponding to the emotional tenor of a given piece of writing.</p>
-				<p>It is difficult to say with any certainty how accurate Watson's calculations are. It pretends to a much greater degree of objectivity than any of us can, and so is accountable only to itself.</p>
-				<p>The fact of its being unreliable and possibly entirely off-base is no reason not to put it to good use, though.</p>
-				<p>Frequently I get emails. Sometimes these emails seem, to me, to have an emotional content that is difficult to contextualize. An oddly angry-sounding email from a boss. A melancholy email from someone buying my table through Craigslist. An inexplicably ebullient email from a distant family member.</p>
-				<p>Sometimes these emails leave me disoriented and confused. I need to reply, but am not sure I can pitch my own 'email voice' to match that of my correspondent. I struggle.</p>
-				<p>Thankfully, I do not have to struggle anymore, because I've built this website. Here's how it works:</p>
 				<ul>
 					<li>In the first form, place the original email to which you are responding.</li>
 					<li>In the second form, place the response you have drafted.</li>
@@ -26,21 +20,22 @@
 			</div>
 			<div class="form-group">
 				<div class="col-xs-10">
-					<button type="submit" class="btn btn-success" ng-click="getEmotions()">Get the feelings</button>
+					<button type="submit" class="btn btn-success noSelect" ng-click="getEmotions()">Get the feelings</button>
 				</div>
 			</div>
 		</form>
 	</div>
 	<div class="col-md-12 printout" ng-show="hasRun">
 		<h3 class="page-header">Your results:</h3>
-		<br />
-		<div class="clearfix">
-			<div class="col-lg-2 col-md-4 col-sm-4 col-xs-6" ng-repeat="emotion in emotionReadout">
-				<div class="col-md-12 emotionOutput" id="{{emotion.feeling}}">
-					<p>{{ emotion.printout }}</p>
-				</div>
+		<div class="col-lg-2 col-md-4 col-sm-4 col-xs-6" ng-repeat="emotion in emotionReadout">
+			<div class="col-md-12 emotionOutput" id="{{emotion.feeling}}">
+				<p>{{ emotion.printout }}</p>
 			</div>
 		</div>
+		<div class="col-xs-12">
+			<a ui-sref="detailedReport"><button class="btn-block btn-warning" id="detailed-button">Click here for detailed report.</button></a>
+		</div>
+		<br />
 	</div>
 </div>
 
