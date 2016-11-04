@@ -5,16 +5,26 @@ var app = require('express')()
 var path = require('path')
 var watson = require('watson-developer-cloud')
 
-app.use(express.static(__dirname + '../public'))
-app.use(require('./request-state.middleware'))
-app.use(require('./statics.middleware'))
+var bodyParser = require('body-parser')
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+
+// app.use(require('./request-state.middleware'))
+// app.use(require('./statics.middleware'))
+var rootPath = path.join(__dirname, '..', '..')
+
+var publicPath = path.join(rootPath, 'public')
+
+app.use(express.static(publicPath))
+app.use(express.static(rootPath))
 
 var alchemyLanguage = new watson.AlchemyLanguageV1({
-	api_key: process.env.ALCHEMY_LANGUAGE_API_KEY	
+	api_key: process.env.API_KEY	
 })
 
 app.get('/*', function(req, res) {
-	res.sendFile('/')
+	res.sendFile(path.join(__dirname, '../../public', 'index.html'))
 })
 
 app.post('/api/:method', function(req, res, next) {

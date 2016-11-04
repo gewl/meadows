@@ -9,7 +9,7 @@ require('dotenv').config({
 // var app = require('./app/app')
 //require db here later
 
-const app = require('./app')
+const app = require('./server/app')
 
 const port = 2020
 
